@@ -4,7 +4,7 @@
 [ext_resource path="res://Vehicle.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 63.386, 32.6679 )
+extents = Vector2( 58.0793, 32.6679 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 97.6395, 74.5585 )
@@ -17,7 +17,7 @@ script = ExtResource( 2 )
 rotation = 1.5708
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 290, 0, 72, 132 )
+region_rect = Rect2( 0, 0, 70, 116 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
