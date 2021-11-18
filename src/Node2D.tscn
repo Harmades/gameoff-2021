@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://spritesheet_characters.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://Vehicle.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://spritesheet_tiles.png" type="Texture" id=5]
-[ext_resource path="res://Enemy.gd" type="Script" id=6]
+[ext_resource path="res://Enemies.gd" type="Script" id=6]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=7]
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=1]
 0/name = "spritesheet_tiles.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -32,25 +33,20 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 13.8811, 25.3092 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 26.309, 14.5127 )
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 200.0
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 458756, 1, 0, 524292, 2, 0, 524292, 3, 0, 524292, 4, 0, 327684, 65536, 0, 589828, 65540, 0, 458754, 65541, 0, 327684, 131072, 0, 589828, 131077, 0, 589825, 131078, 0, 524292, 131079, 0, 524292, 131080, 0, 524292, 131081, 0, 524292, 131082, 0, 524292, 131083, 0, 524292, 131084, 0, 524292, 131085, 0, 327684, 196608, 0, 589828, 196613, 0, 589828, 196621, 0, 589828, 262144, 0, 458754, 262145, 0, 524289, 262146, 0, 524292, 262147, 0, 524292, 262148, 0, 524292, 262149, 0, 524288, 262157, 0, 589828, 327681, 0, 589828, 327685, 0, 589825, 327686, 0, 524292, 327687, 0, 524292, 327688, 0, 524289, 327689, 0, 524292, 327690, 0, 524292, 327691, 0, 524289, 327692, 0, 524292, 327693, 0, 589824, 327694, 0, 524292, 327695, 0, 524289, 327696, 0, 524292, 327697, 0, 524292, 327698, 0, 327684, 393217, 0, 589828, 393221, 0, 589828, 393224, 0, 589828, 393227, 0, 589828, 393231, 0, 589828, 393234, 0, 589828, 458753, 0, 589828, 458757, 0, 589828, 458760, 0, 589828, 458763, 0, 589825, 458764, 0, 524292, 458765, 0, 524292, 458766, 0, 524292, 458767, 0, 524288, 458770, 0, 589828, 524289, 0, 458754, 524290, 0, 524289, 524291, 0, 524292, 524292, 0, 524292, 524293, 0, 524288, 524295, 0, 262148, 524296, 0, 327681, 524297, 0, 196612, 524299, 0, 589828, 524303, 0, 589828, 524306, 0, 589828, 589826, 0, 589828, 589829, 0, 589828, 589831, 0, 458755, 589832, 0, 393219, 589833, 0, 393216, 589834, 0, 524292, 589835, 0, 524288, 589838, 0, 262148, 589839, 0, 327681, 589840, 0, 196612, 589842, 0, 589828, 655362, 0, 589828, 655365, 0, 589828, 655367, 0, 262147, 655368, 0, 458752, 655369, 0, 196611, 655371, 0, 589825, 655372, 0, 524292, 655373, 0, 524292, 655374, 0, 393217, 655375, 0, 393219, 655376, 0, 393216, 655377, 0, 524292, 655378, 0, 524288, 720898, 0, 589828, 720901, 0, 589828, 720904, 0, 589828, 720907, 0, 589828, 720910, 0, 262147, 720911, 0, 393218, 720912, 0, 196611, 720914, 0, 589828, 786434, 0, 589828, 786437, 0, 589828, 786440, 0, 589828, 786443, 0, 589828, 786450, 0, 589828, 851970, 0, 589828, 851973, 0, 589825, 851974, 0, 524292, 851975, 0, 524292, 851976, 0, 589824, 851977, 0, 524289, 851978, 0, 524292, 851979, 0, 327682, 851986, 0, 589828, 917506, 0, 589828, 917509, 0, 589828, 917513, 0, 589828, 917516, 0, 262148, 917517, 0, 393220, 917518, 0, 393220, 917519, 0, 393220, 917520, 0, 196612, 917522, 0, 589828, 983042, 0, 589828, 983045, 0, 589828, 983049, 0, 589828, 983052, 0, 458755, 983053, 0, 65539, 983054, 0, 393218, 983055, 0, 3, 983056, 0, 327683, 983058, 0, 589828, 1048578, 0, 589828, 1048581, 0, 589828, 1048585, 0, 458754, 1048586, 0, 524292, 1048587, 0, 524292, 1048588, 0, 393217, 1048589, 0, 327683, 1048591, 0, 458755, 1048592, 0, 393216, 1048593, 0, 524292, 1048594, 0, 524288, 1114114, 0, 589828, 1114117, 0, 589828, 1114124, 0, 458755, 1114125, 0, 65538, 1114126, 0, 393220, 1114127, 0, 2, 1114128, 0, 327683, 1114130, 0, 589828, 1179650, 0, 589828, 1179653, 0, 458754, 1179654, 0, 327684, 1179660, 0, 262147, 1179661, 0, 393218, 1179662, 0, 393218, 1179663, 0, 393218, 1179664, 0, 196611, 1179666, 0, 589828, 1245186, 0, 589828, 1245190, 0, 589828, 1245202, 0, 589828, 1310722, 0, 458754, 1310723, 0, 524292, 1310724, 0, 524292, 1310725, 0, 524292, 1310726, 0, 589824, 1310727, 0, 524292, 1310728, 0, 524292, 1310729, 0, 524292, 1310730, 0, 524292, 1310731, 0, 524292, 1310732, 0, 524292, 1310733, 0, 524292, 1310734, 0, 524292, 1310735, 0, 524292, 1310736, 0, 524292, 1310737, 0, 524292, 1310738, 0, 327682 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 50, 50 )
+collision_mask = 6
 script = ExtResource( 2 )
 Bullet = ExtResource( 4 )
 
@@ -61,7 +57,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 52, 36 )
 
 [node name="Shape" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Muzzle" type="Position2D" parent="Player"]
 position = Vector2( 36, 0 )
@@ -71,29 +67,50 @@ current = true
 
 [node name="Vehicle1" parent="." instance=ExtResource( 3 )]
 position = Vector2( 284.347, 63.272 )
+collision_layer = 4
 playerPath = NodePath("../Player")
 
 [node name="Vehicle2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 320.368, 572.043 )
+collision_layer = 4
 playerPath = NodePath("../Player")
 
-[node name="Enemy" type="KinematicBody2D" parent="."]
-position = Vector2( 400, 400 )
+[node name="Enemies" type="Node2D" parent="."]
 script = ExtResource( 6 )
+Enemy = ExtResource( 7 )
 
-[node name="Sprite" type="Sprite" parent="Enemy"]
-rotation = -1.5708
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 0, 108, 52, 36 )
+[node name="Spawn1" type="Position2D" parent="Enemies"]
+position = Vector2( 1203.55, 94.6454 )
 
-[node name="Shape" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource( 3 )
+[node name="Spawn2" type="Position2D" parent="Enemies"]
+position = Vector2( 1539.75, 413.897 )
 
-[node name="Range" type="Area2D" parent="Enemy"]
+[node name="Spawn3" type="Position2D" parent="Enemies"]
+position = Vector2( 1272.77, 1062.29 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Range"]
-shape = SubResource( 4 )
+[node name="Spawn4" type="Position2D" parent="Enemies"]
+position = Vector2( 398.358, 1610.38 )
 
-[connection signal="body_entered" from="Enemy/Range" to="Enemy" method="_on_Range_body_entered"]
-[connection signal="body_exited" from="Enemy/Range" to="Enemy" method="_on_Range_body_exited"]
+[node name="Spawn5" type="Position2D" parent="Enemies"]
+position = Vector2( 871.585, 1823.69 )
+
+[node name="Spawn6" type="Position2D" parent="Enemies"]
+position = Vector2( 1414.03, 1645.7 )
+
+[node name="Spawn7" type="Position2D" parent="Enemies"]
+position = Vector2( 2001.68, 1899.97 )
+
+[node name="Spawn8" type="Position2D" parent="Enemies"]
+position = Vector2( 1901.38, 1443.7 )
+
+[node name="Spawn9" type="Position2D" parent="Enemies"]
+position = Vector2( 2144.35, 949.279 )
+
+[node name="Spawn10" type="Position2D" parent="Enemies"]
+position = Vector2( 2097.74, 298.062 )
+
+[node name="Timer" type="Timer" parent="Enemies"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Enemies/Timer" to="Enemies" method="_on_Timer_timeout"]

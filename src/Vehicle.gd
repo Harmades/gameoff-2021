@@ -82,9 +82,7 @@ func exit():
 	city.add_child(self)
 	
 func onPlayerEnterMountArea(body):
-	if body == self: pass
 	player.onPlayerEnterMountArea(self)
 
 func onPlayerExitMountArea(body):
-	if body == self: pass
 	player.onPlayerExitMountArea(self)

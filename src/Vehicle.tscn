@@ -23,6 +23,7 @@ region_rect = Rect2( 0, 0, 70, 116 )
 shape = SubResource( 1 )
 
 [node name="MountArea" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="Shape" type="CollisionShape2D" parent="MountArea"]
 shape = SubResource( 2 )
