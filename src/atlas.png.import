@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spritesheet_characters.png-c3736fe182129c81dd8d8d00e7416ea7.stex"
+path="res://.import/atlas.png-7b6d701721d40511b9cfca52325841a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spritesheet_characters.png"
-dest_files=[ "res://.import/spritesheet_characters.png-c3736fe182129c81dd8d8d00e7416ea7.stex" ]
+source_file="res://atlas.png"
+dest_files=[ "res://.import/atlas.png-7b6d701721d40511b9cfca52325841a7.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

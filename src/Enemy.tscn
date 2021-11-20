@@ -1,17 +1,16 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=1]
-[ext_resource path="res://spritesheet_characters.png" type="Texture" id=2]
+[ext_resource path="res://atlas.png" type="Texture" id=2]
 [ext_resource path="res://Enemy.gd" type="Script" id=3]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 26.309, 14.5127 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 7 )
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 523.166
+[sub_resource type="CircleShape2D" id=2]
+radius = 60.7732
 
 [node name="Enemy" type="KinematicBody2D"]
-position = Vector2( 600, 400 )
 collision_layer = 2
 script = ExtResource( 3 )
 Bullet = ExtResource( 1 )
@@ -20,19 +19,19 @@ Bullet = ExtResource( 1 )
 rotation = -1.5708
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 0, 108, 52, 36 )
+region_rect = Rect2( 64, 176, 14, 10 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Range" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
-shape = SubResource( 4 )
+[node name="Circle" type="CollisionShape2D" parent="Range"]
+shape = SubResource( 2 )
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 36, 0 )
+position = Vector2( 16, 0 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 

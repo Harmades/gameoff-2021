@@ -54,5 +54,5 @@ func _physics_process(delta):
 func shoot():
 	var b = Bullet.instance()
 	owner.add_child(b)
-	b.transform = $Muzzle.global_transform
-	
+	b.position = $Muzzle.global_position
+	b.rotation = $Muzzle.global_rotation

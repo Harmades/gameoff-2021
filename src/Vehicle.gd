@@ -5,16 +5,17 @@ var player = null
 var city = null
 var hasFocus = false
 
-var wheel_base = 70
-var steering_angle = 15
-var engine_power = 800
-var friction = -0.9
-var drag = -0.001
-var braking = -450
-var max_speed_reverse = 250
-var slip_speed = 400
-var traction_fast = 0.1
-var traction_slow = 0.7
+export var wheel_base = 6
+export var steering_angle = 15
+export var engine_power = 800
+export var friction = -0.9
+export var drag = -0.001
+export var braking = -450
+export var max_speed_reverse = 250
+export var slip_speed = 400
+export var traction_fast = 0.1
+export var traction_slow = 0.7
+export var minSpeed = 0.5
 var acceleration = Vector2.ZERO
 var velocity = Vector2.ZERO
 var steer_direction
@@ -33,7 +34,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func apply_friction():
-	if velocity.length() < 5:
+	if velocity.length() < minSpeed:
 		velocity = Vector2.ZERO
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
