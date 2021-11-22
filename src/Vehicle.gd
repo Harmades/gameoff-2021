@@ -81,9 +81,17 @@ func exit():
 	$Camera.current = false
 	player.remove_child(self)
 	city.add_child(self)
+	turnOff()
+	
+func turnOff():
+	velocity = Vector2.ZERO
+	acceleration = Vector2.ZERO
 	
 func onPlayerEnterMountArea(body):
 	player.onPlayerEnterMountArea(self)
 
 func onPlayerExitMountArea(body):
 	player.onPlayerExitMountArea(self)
+
+func _on_DeathArea_body_entered(body):
+	body.die()

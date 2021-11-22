@@ -1,22 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://atlas.png" type="Texture" id=1]
+[ext_resource path="res://atlas-export.png" type="Texture" id=1]
 [ext_resource path="res://Vehicle.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 6 )
+extents = Vector2( 16.1346, 11.0034 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 36, 24 )
+extents = Vector2( 28.4067, 23.3638 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 17.3333, 11.9583 )
 
 [node name="Vehicle" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-rotation = 1.5708
+rotation = -1.5708
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 50, 192, 12, 16 )
+region_rect = Rect2( 0, 48, 22, 32 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -28,10 +31,18 @@ collision_layer = 0
 shape = SubResource( 2 )
 
 [node name="LeavePosition" type="Position2D" parent="."]
-position = Vector2( 3.12282, -12.1166 )
+position = Vector2( 6.98775, -16.9725 )
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2( 0.25, 0.25 )
 
+[node name="DeathArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+shape = SubResource( 3 )
+
 [connection signal="body_entered" from="MountArea" to="." method="onPlayerEnterMountArea"]
 [connection signal="body_exited" from="MountArea" to="." method="onPlayerExitMountArea"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_DeathArea_body_entered"]

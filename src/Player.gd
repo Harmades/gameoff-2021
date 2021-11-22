@@ -20,6 +20,10 @@ func get_input():
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
+	if velocity == Vector2.ZERO:
+		idle()
+	else:
+		run()
 	if Input.is_action_pressed("action") && vehicleNear != null:
 		$Shape.disabled = true
 		$Camera.current = false
@@ -56,3 +60,11 @@ func shoot():
 	owner.add_child(b)
 	b.position = $Muzzle.global_position
 	b.rotation = $Muzzle.global_rotation
+
+func idle():
+	if $Animation.animation != "idle":
+		$Animation.play("idle")
+
+func run():
+	if $Animation.animation != "run":
+		$Animation.play("run")

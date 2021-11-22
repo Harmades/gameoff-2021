@@ -11,10 +11,8 @@ func _ready():
 			spawns.append(child)
 			
 
-
-
 func _on_Timer_timeout():
 	var enemy = Enemy.instance()
 	var spawn = spawns[randi() % spawns.size()]
 	enemy.position = spawn.position
-	owner.add_child(enemy)
+	add_child(enemy)

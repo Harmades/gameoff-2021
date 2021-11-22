@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/atlas.png-7b6d701721d40511b9cfca52325841a7.stex"
+path="res://.import/atlas-export.png-b3bcc85ed32061cb25cd6bb8f7345a06.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://atlas.png"
-dest_files=[ "res://.import/atlas.png-7b6d701721d40511b9cfca52325841a7.stex" ]
+source_file="res://atlas-export.png"
+dest_files=[ "res://.import/atlas-export.png-b3bcc85ed32061cb25cd6bb8f7345a06.stex" ]
 
 [params]
 

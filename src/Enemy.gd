@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export (PackedScene) var Bullet
 
-enum State { Idle, Attack }
+enum State { Idle, Attack, Dead }
 var state = State.Idle
 var run_speed = 50
 var velocity = Vector2.ZERO
@@ -13,7 +13,7 @@ func _physics_process(delta):
 	if state == State.Attack:
 		velocity = position.direction_to(player.position) * run_speed
 		look_at(player.position)
-	velocity = move_and_slide(velocity)
+#	velocity = move_and_slide(velocity)
 	
 func _on_Range_body_exited(body):
 	player = null
@@ -34,5 +34,12 @@ func shoot():
 func _on_ShootTimer_timeout():
 	shoot() # Replace with function body.
 
-func bulletHit():
-	queue_free()
+func bulletHit(bullet):
+	die()
+
+func die():
+	$DeadSprite.visible = true
+	$Sprite.visible = false
+	self.state = State.Dead
+	$Shape.set_deferred("disabled", true)
+	$Range.monitoring = false

@@ -7,7 +7,6 @@ func _physics_process(delta):
 	position += transform.x * speed * delta
 	pass;
 
-
 func _on_Bullet_body_entered(body):
 	queue_free()
-	body.bulletHit()
+	body.bulletHit(self)
