@@ -41,6 +41,11 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 96, 176, 14, 16 )
 
+[node name="BugTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="timeout" from="BugTimer" to="." method="_on_BugTimer_timeout"]

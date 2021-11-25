@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal bug_signal(body)
+
 export (PackedScene) var Bullet
 
 enum State { Idle, Attack, Dead }
@@ -43,3 +45,7 @@ func die():
 	self.state = State.Dead
 	$Shape.set_deferred("disabled", true)
 	$Range.monitoring = false
+	$BugTimer.stop()
+
+func _on_BugTimer_timeout():
+	emit_signal("bug_signal", self)

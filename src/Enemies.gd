@@ -13,6 +13,7 @@ func _ready():
 
 func _on_Timer_timeout():
 	var enemy = Enemy.instance()
+	enemy.connect("bug_signal", get_parent().get_node("TileMap"), "_on_bug_signal")
 	var spawn = spawns[randi() % spawns.size()]
 	enemy.position = spawn.position
 	add_child(enemy)

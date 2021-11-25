@@ -1,10 +1,16 @@
-extends KinematicBody2D
+ extends KinematicBody2D
 
 export (NodePath) var playerPath = null
 var player = null
 var city = null
 var hasFocus = false
 
+enum State { Alive, Dead }
+var state = State.Alive
+
+var currentDeathCounter = 0
+
+export var burningMaxCounter = 5
 export var wheel_base = 6
 export var steering_angle = 15
 export var engine_power = 800
@@ -83,6 +89,12 @@ func exit():
 	city.add_child(self)
 	turnOff()
 	
+func bulletHit(bullet):
+	$FireSprite.visible = true
+	$DeathCounter.start()
+	$DeathCounterLabel.visible = true
+	$DeathCounterLabel.text = str(self.burningMaxCounter)
+	
 func turnOff():
 	velocity = Vector2.ZERO
 	acceleration = Vector2.ZERO
@@ -95,3 +107,14 @@ func onPlayerExitMountArea(body):
 
 func _on_DeathArea_body_entered(body):
 	body.die()
+
+
+func _on_DeathCounter_timeout():
+	currentDeathCounter = currentDeathCounter + 1
+	if currentDeathCounter == self.burningMaxCounter:
+		if hasFocus:
+			exit()
+		$DeathCounterLabel.visible = false
+		queue_free()
+	else:
+		$DeathCounterLabel.text = str(self.burningMaxCounter - currentDeathCounter)
