@@ -6,6 +6,8 @@ var player = null
 var city = null
 var hasFocus = false
 
+signal explode(center, radius)
+
 enum State { Alive, Dead }
 var state = State.Alive
 
@@ -121,5 +123,6 @@ func _on_DeathCounter_timeout():
 			exit()
 		$DeathCounterLabel.visible = false
 		queue_free()
+		emit_signal("explode", self.global_position, $ExplodeArea.get_node("Shape").shape.radius)
 	else:
 		$DeathCounterLabel.text = str(self.burningMaxCounter - currentDeathCounter)

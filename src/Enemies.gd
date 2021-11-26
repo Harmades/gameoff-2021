@@ -2,6 +2,9 @@ extends Node2D
 
 export (PackedScene) var Enemy
 
+signal neos_changed(value)
+
+var count = 0
 var spawns = []
 
 # Called when the node enters the scene tree for the first time.
@@ -17,3 +20,5 @@ func _on_Timer_timeout():
 	var spawn = spawns[randi() % spawns.size()]
 	enemy.position = spawn.position
 	add_child(enemy)
+	count = count + 1
+	emit_signal("neos_changed", count)
