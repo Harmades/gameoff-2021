@@ -1,6 +1,7 @@
  extends KinematicBody2D
 
 export (NodePath) var playerPath = null
+export (NodePath) var cameraPath = null
 var player = null
 var city = null
 var hasFocus = false
@@ -80,13 +81,17 @@ func calculate_steering(delta):
 
 func enter():
 	hasFocus = true
-	$Camera.current = true
+	var remoteNode = player.get_node("CameraRemoteTransform")
+	player.remove_child(remoteNode)
+	add_child(remoteNode)
 	
 func exit():
 	hasFocus = false
-	$Camera.current = false
 	player.remove_child(self)
 	city.add_child(self)
+	var remoteNode = get_node("CameraRemoteTransform")
+	remove_child(remoteNode)
+	player.add_child(remoteNode)
 	turnOff()
 	
 func bulletHit(bullet):

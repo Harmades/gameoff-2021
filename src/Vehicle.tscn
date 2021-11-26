@@ -35,9 +35,6 @@ shape = SubResource( 2 )
 [node name="LeavePosition" type="Position2D" parent="."]
 position = Vector2( 6.98775, -16.9725 )
 
-[node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2( 0.25, 0.25 )
-
 [node name="DeathArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2

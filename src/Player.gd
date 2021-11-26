@@ -26,7 +26,6 @@ func get_input():
 		run()
 	if Input.is_action_pressed("action") && vehicleNear != null:
 		$Shape.disabled = true
-		$Camera.current = false
 		visible = false
 		hasFocus = false
 		vehicle = vehicleNear
@@ -37,7 +36,6 @@ func get_input():
 func exitVehicle(position2d: Position2D):
 	vehicle.exit()
 	$Shape.disabled = false
-	$Camera.current = true
 	visible = true
 	hasFocus = true
 	vehicle = null
