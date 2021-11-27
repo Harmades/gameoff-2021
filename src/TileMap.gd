@@ -14,6 +14,8 @@ func _ready():
 func bulletHit(bullet):
 	var contactPoint = bullet.get_node("HitTile").global_position
 	var cell = world_to_map(contactPoint)
+	if cell.x < 1 or cell.x > 73 or cell.y < 1 or cell.y > 84:
+		return
 	var currentCell = get_cellv(cell)
 	var newTile = tileDestroyed
 	if currentCell == tileBugged:

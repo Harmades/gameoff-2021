@@ -15,12 +15,12 @@ var currentDeathCounter = 0
 
 export var burningMaxCounter = 5
 export var wheel_base = 6
-export var steering_angle = 15
-export var engine_power = 800
+export var steering_angle = 8
+export var engine_power = 100
 export var friction = -0.9
 export var drag = -0.001
 export var braking = -450
-export var max_speed_reverse = 250
+export var max_speed_reverse = 50
 export var slip_speed = 400
 export var traction_fast = 0.1
 export var traction_slow = 0.7
