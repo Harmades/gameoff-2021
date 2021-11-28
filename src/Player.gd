@@ -3,6 +3,8 @@ extends KinematicBody2D
 export (int) var speed = 200
 export (PackedScene) var Bullet
 
+signal dead
+
 var velocity = Vector2()
 var hasFocus = true
 
@@ -24,10 +26,10 @@ func get_input():
 		idle()
 	else:
 		run()
-	if Input.is_action_pressed("action") && vehicleNear != null:
+	if Input.is_action_just_pressed("action") && vehicleNear != null:
 		$Shape.disabled = true
 		visible = false
-		hasFocus = false
+		set_deferred("hasFocus", false)
 		vehicle = vehicleNear
 		vehicle.enter()
 	if Input.is_action_just_pressed("shoot"):
@@ -37,7 +39,7 @@ func exitVehicle(position2d: Position2D):
 	vehicle.exit()
 	$Shape.disabled = false
 	visible = true
-	hasFocus = true
+	set_deferred("hasFocus", true)
 	vehicle = null
 	self.position = position2d.global_position
 		
@@ -66,3 +68,14 @@ func idle():
 func run():
 	if $Animation.animation != "run":
 		$Animation.play("run")
+		
+func bulletHit(bullet):
+	die()
+	emit_signal("dead")
+
+func die():
+	$Shape.disabled = false
+	visible = true
+	set_deferred("hasFocus", true)
+	vehicle = null
+	self.global_transform = get_parent().get_node("Respawn").global_transform

@@ -59,9 +59,9 @@ func get_input():
 		acceleration = transform.x * engine_power
 	if Input.is_action_pressed("down"):
 		acceleration = transform.x * braking
-	if Input.is_action_pressed("action_leave"):
+	if Input.is_action_just_pressed("action"):
 		player.exitVehicle($LeavePosition)
-		hasFocus = false
+		set_deferred("hasFocus", false)
 		
 func calculate_steering(delta):
 	var rear_wheel = position - transform.x * wheel_base/2.0
@@ -80,14 +80,14 @@ func calculate_steering(delta):
 	rotation = new_heading.angle()
 
 func enter():
-	hasFocus = true
+	set_deferred("hasFocus", true)
 	var remoteNode = player.get_node("CameraRemoteTransform")
 	player.remove_child(remoteNode)
 	add_child(remoteNode)
 	remoteNode.remote_path = "../../../../Camera"
 	
 func exit():
-	hasFocus = false
+	set_deferred("hasFocus", false)
 	var remoteNode = get_node("CameraRemoteTransform")
 	remove_child(remoteNode)
 	player.add_child(remoteNode)
@@ -95,6 +95,9 @@ func exit():
 	turnOff()
 	
 func bulletHit(bullet):
+	if self.state == State.Dead:
+		return
+	self.state = State.Dead
 	$FireSprite.visible = true
 	$DeathCounter.start()
 	$DeathCounterLabel.visible = true
@@ -119,6 +122,7 @@ func _on_DeathCounter_timeout():
 	if currentDeathCounter == self.burningMaxCounter:
 		if hasFocus:
 			exit()
+			player.die()
 		$DeathCounterLabel.visible = false
 		emit_signal("explode", self.global_position, $ExplodeArea.get_node("Shape").shape.radius)
 		queue_free()

@@ -57,5 +57,11 @@ shape = SubResource( 1 )
 position = Vector2( 1, 3 )
 frames = SubResource( 7 )
 animation = "run"
-frame = 2
+frame = 3
 playing = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]

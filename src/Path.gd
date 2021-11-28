@@ -9,3 +9,7 @@ func _process(delta):
 
 func _on_attack_signal():
 	running = false
+
+func reset():
+	$PathFollow.set_offset(0)
+	running = true
