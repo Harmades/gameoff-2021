@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/matrix_fight_full.mp3-8b29f188faf4816423a5a6f7afd882e0.mp3str"
+
+[deps]
+
+source_file="res://matrix_fight_full.mp3"
+dest_files=[ "res://.import/matrix_fight_full.mp3-8b29f188faf4816423a5a6f7afd882e0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

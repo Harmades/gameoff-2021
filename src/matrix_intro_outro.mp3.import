@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/matrix_intro_outro.mp3-64d314b60f90502ebdbfc7494c0ad8cc.mp3str"
+
+[deps]
+
+source_file="res://matrix_intro_outro.mp3"
+dest_files=[ "res://.import/matrix_intro_outro.mp3-64d314b60f90502ebdbfc7494c0ad8cc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/matrix_city_full.mp3-f72541beca7e51e45350abdf2eb1a422.mp3str"
+
+[deps]
+
+source_file="res://matrix_city_full.mp3"
+dest_files=[ "res://.import/matrix_city_full.mp3-f72541beca7e51e45350abdf2eb1a422.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
