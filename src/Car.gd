@@ -1,7 +1,5 @@
  extends KinematicBody2D
 
-export (NodePath) var playerPath = null
-export (NodePath) var cameraPath = null
 var player = null
 var city = null
 var hasFocus = false
@@ -29,8 +27,8 @@ var acceleration = Vector2.ZERO
 var velocity = Vector2.ZERO
 var steer_direction
 
-func _ready():
-	player = get_node(playerPath)
+func init():
+	player = get_parent().get_parent().get_parent().get_node("Player")
 	city = get_parent()
 
 func _physics_process(delta):
@@ -86,14 +84,14 @@ func enter():
 	var remoteNode = player.get_node("CameraRemoteTransform")
 	player.remove_child(remoteNode)
 	add_child(remoteNode)
+	remoteNode.remote_path = "../../../../Camera"
 	
 func exit():
 	hasFocus = false
-	player.remove_child(self)
-	city.add_child(self)
 	var remoteNode = get_node("CameraRemoteTransform")
 	remove_child(remoteNode)
 	player.add_child(remoteNode)
+	remoteNode.remote_path = "../../Camera"
 	turnOff()
 	
 func bulletHit(bullet):
@@ -113,8 +111,8 @@ func onPlayerExitMountArea(body):
 	player.onPlayerExitMountArea(self)
 
 func _on_DeathArea_body_entered(body):
-	body.die()
-
+	if hasFocus:
+		body.die()
 
 func _on_DeathCounter_timeout():
 	currentDeathCounter = currentDeathCounter + 1
@@ -122,7 +120,7 @@ func _on_DeathCounter_timeout():
 		if hasFocus:
 			exit()
 		$DeathCounterLabel.visible = false
-		queue_free()
 		emit_signal("explode", self.global_position, $ExplodeArea.get_node("Shape").shape.radius)
+		queue_free()
 	else:
 		$DeathCounterLabel.text = str(self.burningMaxCounter - currentDeathCounter)

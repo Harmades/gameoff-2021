@@ -20,6 +20,7 @@ radius = 37.2311
 [node name="Vehicle" type="KinematicBody2D"]
 collision_layer = 4
 script = ExtResource( 2 )
+engine_power = 75
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -6 )

@@ -6,6 +6,7 @@ export (PackedScene) var Bullet
 
 export (int) var randomMovementRange = 64
 
+var index = null
 var nextPos = null
 enum State { Idle, Attack, Dead }
 var state = State.Idle
@@ -40,6 +41,7 @@ func chooseNextPos():
 func _on_Range_body_entered(body):
 	player = body
 	state = State.Attack
+	get_parent().get_parent().running = false
 #	$ShootTimer.start()
 
 func shoot():
@@ -55,12 +57,22 @@ func bulletHit(bullet):
 	die()
 
 func die():
+	if self.state == State.Dead:
+		return
 	$DeadSprite.visible = true
 	$Sprite.visible = false
 	self.state = State.Dead
 	$Shape.set_deferred("disabled", true)
 	$Range.monitoring = false
 	$BugTimer.stop()
+	var transform = self.global_transform
+	var enemiesNode = get_parent().get_parent().get_parent()
+	enemiesNode.clearIndex(self.index)
+	get_parent().remove_child(self)
+	var firstNode = enemiesNode.get_child(0)
+	enemiesNode.add_child_below_node(firstNode, self)
+	self.global_transform = transform
+	
 
 func _on_BugTimer_timeout():
 	emit_signal("bug_signal", self)

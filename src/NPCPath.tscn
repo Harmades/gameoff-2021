@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://NPC.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Path.gd" type="Script" id=2]
+
+[node name="Spawn4" type="Path2D"]
+curve = null
+script = ExtResource( 2 )
+running = true
+
+[node name="PathFollow" type="PathFollow2D" parent="."]
+rotation = 1.5708
+
+[node name="NPC" parent="PathFollow" instance=ExtResource( 1 )]
+collision_mask = 8

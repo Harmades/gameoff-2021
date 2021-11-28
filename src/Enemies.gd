@@ -6,22 +6,31 @@ signal neos_changed(value)
 
 var count = 0
 var spawns = []
+var enemies = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	for child in get_children():
 		if child.name.begins_with("Spawn"):
 			spawns.append(child)
+			enemies.append(null)
 			
 
 func _on_Timer_timeout():
+	var randomIndex = randi() % spawns.size()
+	var spawn = spawns[randomIndex]
+	if enemies[randomIndex] != null:
+		return
 	var enemy = Enemy.instance()
-	enemy.connect("bug_signal", get_parent().get_node("TileMap"), "_on_bug_signal")
-	enemy.connect("attack_signal", get_parent().get_parent(), "_on_attack_signal")
-	var spawn = spawns[randi() % spawns.size()]
+	enemy.index = randomIndex
+	enemy.connect("bug_signal", get_parent().get_node("BugLayer"), "_on_bug_signal")
+	enemies[randomIndex] = enemy
 	enemy.position = spawn.position
 	var follow = spawn.get_node("PathFollow")
 	follow.add_child(enemy)
 	follow.get_parent().running = true
+	follow.offset = 0
 	count = count + 1
 	emit_signal("neos_changed", count)
+	
+func clearIndex(index):
+	enemies[index] = null

@@ -58,6 +58,7 @@ shoot={
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Vehicle"
 2d_physics/layer_4="City"
+2d_physics/layer_5="Bug"
 
 [physics]
 
