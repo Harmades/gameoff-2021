@@ -12,19 +12,19 @@ region = Rect2( 16, 176, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 16, 176, 16, 16 )
+region = Rect2( 96, 192, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 176, 16, 16 )
+region = Rect2( 16, 176, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 32, 176, 16, 16 )
+region = Rect2( 0, 176, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 176, 16, 16 )
+region = Rect2( 32, 176, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
@@ -33,14 +33,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 3 ), SubResource( 5 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 6 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": true,
 "name": "dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 4 ), SubResource( 6 ) ],
+"loop": true,
+"name": "run",
 "speed": 5.0
 } ]
 
@@ -57,7 +57,7 @@ shape = SubResource( 1 )
 position = Vector2( 1, 3 )
 frames = SubResource( 7 )
 animation = "run"
-frame = 3
+frame = 2
 playing = true
 
 [node name="RespawnTimer" type="Timer" parent="."]
