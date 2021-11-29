@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://UiStart.gd" type="Script" id=2]
 [ext_resource path="res://matrix_intro_outro.mp3" type="AudioStream" id=3]
+[ext_resource path="res://menu.png" type="Texture" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -12,27 +13,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-margin_right = 384.0
-margin_bottom = 216.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 191.42, 108.411 )
+texture = ExtResource( 4 )
 
-[node name="Label" type="Label" parent="CenterContainer"]
-margin_left = 109.0
-margin_top = 49.0
-margin_right = 274.0
-margin_bottom = 166.0
+[node name="Label" type="Label" parent="."]
+margin_left = 61.0
+margin_top = 19.0
+margin_right = 328.0
+margin_bottom = 200.0
 custom_fonts/font = ExtResource( 1 )
 text = "All neos have been eliminated.
 
 Congratulations, Agent Smith v1.0
 
 Credits:
-Art - Emily Lissot
 Music - Barthelemy Renucci
-Code - Adrian Lissot"
+Art - GD - Emily Lissot
+Code - GD - Adrian Lissot"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
