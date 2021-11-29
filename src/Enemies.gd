@@ -27,6 +27,8 @@ func _ready():
 func clearIndex(index):
 	alive = alive - 1
 	emit_signal("neos_changed", alive)
+	if alive == 0:
+		get_tree().change_scene("res://UIEnd.tscn")
 
 func _on_Player_dead():
 	for enemy in enemies:

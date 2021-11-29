@@ -1265,7 +1265,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=34]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 682.931, 60.5598, 0, 0, 0, 0, 727.773, 61.7477, 0, 0, 0, 0, 728.367, 155.589, 0, 0, 0, 0, 619.974, 158.856, 0, 0, 0, 0, 682.04, 59.6689 )
+"points": PoolVector2Array( 0, 0, 0, 0, 664.333, 60.8333, 0, 0, 0, 0, 727.773, 61.7477, 0, 0, 0, 0, 728.367, 155.589, 0, 0, 0, 0, 619.974, 158.856, 0, 0, 0, 0, 663.833, 60 )
 }
 
 [sub_resource type="Curve2D" id=35]
@@ -1320,7 +1320,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=45]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 301.504, 664.669, 0, 0, 0, 0, 270.553, 567.821, 0, 0, 0, 0, 38.4155, 564.825, 0, 0, 0, 0, 128.275, 665.668, 0, 0, 0, 0, 298.509, 665.169 )
+"points": PoolVector2Array( 0, 0, 0, 0, 276.719, 661.34, 0, 0, 0, 0, 270.553, 567.821, 0, 0, 0, 0, 38.4155, 564.825, 0, 0, 0, 0, 128.275, 665.668, 0, 0, 0, 0, 276.298, 662.393 )
 }
 
 [sub_resource type="Curve2D" id=46]
@@ -1375,7 +1375,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=56]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 484.557, 674.389, 0, 0, 0, 0, 318.256, 674.389, 0, 0, 0, 0, 374.383, 780.703, 0, 0, 0, 0, 384.183, 674.092, 0, 0, 0, 0, 484.557, 674.389 )
+"points": PoolVector2Array( 0, 0, 0, 0, 484.557, 674.389, 0, 0, 0, 0, 282.617, 727.484, 0, 0, 0, 0, 374.383, 780.703, 0, 0, 0, 0, 384.183, 674.092, 0, 0, 0, 0, 484.557, 674.389 )
 }
 
 [sub_resource type="Curve2D" id=57]
@@ -1410,7 +1410,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=63]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1033.69, 649.261, 0, 0, 0, 0, 1037.06, 448.567, 0, 0, 0, 0, 911.484, 452.211, 0, 0, 0, 0, 907.559, 662.155, 0, 0, 0, 0, 1034.53, 649.261 )
+"points": PoolVector2Array( 0, 0, 0, 0, 1035.88, 660.039, 0, 0, 0, 0, 1037.06, 448.567, 0, 0, 0, 0, 911.484, 452.211, 0, 0, 0, 0, 907.559, 662.155, 0, 0, 0, 0, 1035.21, 660.039 )
 }
 
 [sub_resource type="Curve2D" id=64]
@@ -1666,71 +1666,6 @@ animation = "idle"
 remote_path = NodePath("../../Camera")
 update_rotation = false
 
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2( 32, 64 )
-current = true
-zoom = Vector2( 0.4, 0.4 )
-script = ExtResource( 12 )
-
-[node name="BluePill" type="Sprite" parent="Camera"]
-position = Vector2( -170.195, -103.784 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 0, 32, 48, 16 )
-
-[node name="MatrixHealthLabel" type="Label" parent="Camera/BluePill"]
-margin_left = -20.3154
-margin_top = -6.40171
-margin_right = 7.68457
-margin_bottom = 5.59829
-custom_fonts/font = ExtResource( 11 )
-text = "Bugs: "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MatrixHealth" type="Label" parent="Camera/BluePill"]
-margin_left = 9.94005
-margin_top = -5.70919
-margin_right = 33.94
-margin_bottom = 6.29081
-custom_fonts/font = ExtResource( 11 )
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RedPill" type="Sprite" parent="Camera"]
-position = Vector2( -170.382, -81.5365 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 48, 32, 48, 16 )
-
-[node name="NeosCount" type="Label" parent="Camera/RedPill"]
-margin_left = 9.62251
-margin_top = -6.13543
-margin_right = 15.6225
-margin_bottom = 5.86457
-custom_fonts/font = ExtResource( 11 )
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NeosLabel" type="Label" parent="Camera/RedPill"]
-margin_left = -19.8635
-margin_top = -5.75467
-margin_right = 6.13651
-margin_bottom = 6.24533
-custom_fonts/font = ExtResource( 11 )
-text = "Neos:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Respawn" type="Position2D" parent="."]
-position = Vector2( 818.79, 441.408 )
-
 [node name="Vehicles" type="Node2D" parent="."]
 
 [node name="Spawn1" type="Position2D" parent="Vehicles"]
@@ -1753,7 +1688,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Spawn2" type="Position2D" parent="Vehicles"]
-position = Vector2( 620.167, 103.247 )
+position = Vector2( 692.769, 105.434 )
 script = ExtResource( 17 )
 vehicleScene = ExtResource( 15 )
 
@@ -1829,7 +1764,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Spawn7" type="Position2D" parent="Vehicles"]
-position = Vector2( 794.306, 491.552 )
+position = Vector2( 800.549, 485.309 )
 script = ExtResource( 17 )
 vehicleScene = ExtResource( 3 )
 rot = -90
@@ -1849,7 +1784,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Spawn18" type="Position2D" parent="Vehicles"]
-position = Vector2( 983.195, 642.311 )
+position = Vector2( 983.393, 635.77 )
 script = ExtResource( 17 )
 vehicleScene = ExtResource( 14 )
 rot = 90
@@ -1907,7 +1842,7 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Spawn13" type="Position2D" parent="Vehicles"]
-position = Vector2( 1056.61, 958.486 )
+position = Vector2( 1130.88, 1032.38 )
 script = ExtResource( 17 )
 vehicleScene = ExtResource( 13 )
 rot = -90
@@ -1935,6 +1870,71 @@ rot = 180
 [node name="RespawnTimer" type="Timer" parent="Vehicles/Spawn20"]
 wait_time = 5.0
 one_shot = true
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 32, 64 )
+current = true
+zoom = Vector2( 0.4, 0.4 )
+script = ExtResource( 12 )
+
+[node name="BluePill" type="Sprite" parent="Camera"]
+position = Vector2( -159.123, -92.9925 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 48, 16 )
+
+[node name="MatrixHealthLabel" type="Label" parent="Camera/BluePill"]
+margin_left = -20.3154
+margin_top = -6.40171
+margin_right = 7.68457
+margin_bottom = 5.59829
+custom_fonts/font = ExtResource( 11 )
+text = "Bugs: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MatrixHealth" type="Label" parent="Camera/BluePill"]
+margin_left = 9.94005
+margin_top = -5.70919
+margin_right = 33.94
+margin_bottom = 6.29081
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedPill" type="Sprite" parent="Camera"]
+position = Vector2( -159.31, -70.745 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 32, 48, 16 )
+
+[node name="NeosCount" type="Label" parent="Camera/RedPill"]
+margin_left = 9.62251
+margin_top = -6.13543
+margin_right = 15.6225
+margin_bottom = 5.86457
+custom_fonts/font = ExtResource( 11 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NeosLabel" type="Label" parent="Camera/RedPill"]
+margin_left = -19.8635
+margin_top = -5.75467
+margin_right = 6.13651
+margin_bottom = 6.24533
+custom_fonts/font = ExtResource( 11 )
+text = "Neos:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Respawn" type="Position2D" parent="."]
+position = Vector2( 818.79, 441.408 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

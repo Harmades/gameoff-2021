@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UiStart.gd" type="Script" id=2]
+[ext_resource path="res://matrix_intro_outro.mp3" type="AudioStream" id=3]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 384.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 65.0
+margin_top = 57.0
+margin_right = 318.0
+margin_bottom = 159.0
+custom_fonts/font = ExtResource( 1 )
+text = "The neos have corrupted the Matrix beyond repair.
+
+You have failed, Agent Smith.
+
+\"Never send a human to do a machine's job\"
+
+Right click to reset the Matrix."
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.4, 0.4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true

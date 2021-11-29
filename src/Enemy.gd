@@ -16,13 +16,14 @@ var player = null
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO
-	if state == State.Attack and player != null:
+	if state == State.Attack:
 		if nextPos == null:
 			chooseNextPos()
 		elif position.x - nextPos.x < 0.5 and position.y - nextPos.y < 0.5:
 			chooseNextPos()
 		velocity = position.direction_to(self.nextPos) * run_speed
-		look_at(player.global_position)
+		if player != null:
+			look_at(player.global_position)
 	var collision = move_and_collide(velocity, true, true, true)
 	if collision != null:
 		chooseNextPos()

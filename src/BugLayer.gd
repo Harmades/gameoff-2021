@@ -2,6 +2,7 @@ extends TileMap
 
 export (int) var tileBugged
 export (int) var tileBuggedDestroyed
+export (int) var maxBugs = 300
 
 signal bugs_changed(value)
 var bugs = 0
@@ -27,3 +28,5 @@ func _on_bug_signal(body):
 func set_bugs(value):
 	bugs = value
 	emit_signal("bugs_changed", bugs)
+	if bugs >= maxBugs:
+		get_tree().change_scene("res://UIDefeat.tscn")
