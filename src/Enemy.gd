@@ -22,8 +22,7 @@ func _physics_process(delta):
 		elif position.x - nextPos.x < 0.5 and position.y - nextPos.y < 0.5:
 			chooseNextPos()
 		velocity = position.direction_to(self.nextPos) * run_speed
-		if player != null:
-			look_at(player.global_position)
+		look_at(player.global_position)
 	var collision = move_and_collide(velocity, true, true, true)
 	if collision != null:
 		chooseNextPos()
@@ -45,9 +44,10 @@ func reset():
 	
 func _on_Range_body_entered(body):
 	if body.hasFocus and self.state == State.Idle:
-		player = body
+		player = get_node("/root/Node2D/Player")
 		state = State.Attack
 		get_parent().get_parent().running = false
+		look_at(player.global_position)
 		shoot()
 		$ShootTimer.start()
 

@@ -10,3 +10,6 @@ func _physics_process(delta):
 func _on_Bullet_body_entered(body):
 	queue_free()
 	body.bulletHit(self)
+
+func _on_Lifetime_timeout():
+	queue_free()

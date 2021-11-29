@@ -16,10 +16,10 @@ func toWorldCoord(value):
 	return value / 16
 
 func explode(center, radius):
-	var xMin = toWorldCoord(center.x - radius)
-	var xMax = toWorldCoord(center.x + radius)
-	var yMin = toWorldCoord(center.y - radius)
-	var yMax = toWorldCoord(center.y + radius)
+	var xMin = max(toWorldCoord(center.x - radius), 1)
+	var xMax = min(toWorldCoord(center.x + radius), 73)
+	var yMin = max(toWorldCoord(center.y - radius), 1)
+	var yMax = min(toWorldCoord(center.y + radius), 84)
 	for i in range(xMin, xMax):
 		for j in range(yMin, yMax):
 			set_cell(i, j, tileDestroyed)

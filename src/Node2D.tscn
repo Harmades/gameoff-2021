@@ -1647,7 +1647,7 @@ curve = SubResource( 64 )
 position = Vector2( 32, 64 )
 collision_mask = 6
 script = ExtResource( 2 )
-speed = 50
+speed = 60
 Bullet = ExtResource( 4 )
 
 [node name="Shape" type="CollisionShape2D" parent="Player"]
@@ -1665,6 +1665,10 @@ animation = "idle"
 [node name="CameraRemoteTransform" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera")
 update_rotation = false
+
+[node name="FireRate" type="Timer" parent="Player"]
+wait_time = 0.5
+one_shot = true
 
 [node name="Vehicles" type="Node2D" parent="."]
 
@@ -1943,6 +1947,7 @@ autoplay = true
 [connection signal="bugs_changed" from="BugLayer" to="Camera" method="_on_BugLayer_bugs_changed"]
 [connection signal="neos_changed" from="Enemies" to="Camera" method="_on_Enemies_neos_changed"]
 [connection signal="dead" from="Player" to="Enemies" method="_on_Player_dead"]
+[connection signal="timeout" from="Player/FireRate" to="Player" method="_on_FireRate_timeout"]
 [connection signal="timeout" from="Vehicles/Spawn1/RespawnTimer" to="Vehicles/Spawn1" method="_on_RespawnTimer_timeout"]
 [connection signal="timeout" from="Vehicles/Spawn15/RespawnTimer" to="Vehicles/Spawn15" method="_on_RespawnTimer_timeout"]
 [connection signal="timeout" from="Vehicles/Spawn2/RespawnTimer" to="Vehicles/Spawn2" method="_on_RespawnTimer_timeout"]

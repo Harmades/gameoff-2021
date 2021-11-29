@@ -11,6 +11,8 @@ var hasFocus = true
 var vehicle = null
 var vehicleNear = null
 
+var canShoot = true
+
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("right"):
@@ -56,10 +58,14 @@ func _physics_process(delta):
 		velocity = move_and_slide(velocity)
 
 func shoot():
+	if !canShoot:
+		return
+	canShoot = false
 	var b = Bullet.instance()
 	owner.add_child(b)
 	b.position = $Muzzle.global_position
 	b.rotation = $Muzzle.global_rotation
+	$FireRate.start()
 
 func idle():
 	if $Animation.animation != "idle":
@@ -79,3 +85,7 @@ func die():
 	set_deferred("hasFocus", true)
 	vehicle = null
 	self.global_transform = get_parent().get_node("Respawn").global_transform
+
+
+func _on_FireRate_timeout():
+	canShoot = true

@@ -33,6 +33,7 @@ func init():
 
 func _physics_process(delta):
 	if !hasFocus: return
+	player.global_position = $LeavePosition.global_position
 	acceleration = Vector2.ZERO
 	get_input()
 	apply_friction()
