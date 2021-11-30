@@ -27,6 +27,9 @@ func _physics_process(delta):
 	if collision != null:
 		chooseNextPos()
 	velocity = move_and_slide(velocity)
+	if self.global_position.x <= 0 or self.global_position.x >= 74 * 16 or self.global_position.y <= 0 or self.global_position.y >= 85 * 16:
+		reset()
+	
 	
 func chooseNextPos():
 	var xRand = self.position.x + randomMovementRange * rand_range(-1, 1)
