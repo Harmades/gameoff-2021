@@ -5,6 +5,7 @@ export (PackedScene) var Bullet
 
 signal dead
 
+var canMove = true
 var velocity = Vector2()
 var hasFocus = true
 
@@ -52,7 +53,7 @@ func onPlayerExitMountArea(vehicle):
 	vehicleNear = null
 	
 func _physics_process(delta):
-	if hasFocus:
+	if hasFocus && canMove:
 		look_at(get_global_mouse_position())
 		get_input()
 		velocity = move_and_slide(velocity)
@@ -77,15 +78,22 @@ func run():
 		
 func bulletHit(bullet):
 	die()
-	emit_signal("dead")
 
 func die():
+	$RespawnTimer.start()
+	get_parent().get_node("Camera/DeathLabel").visible = true
+	$Animation.animation = "death"
+	canMove = false
+	emit_signal("dead")
+
+func _on_FireRate_timeout():
+	canShoot = true
+
+func _on_RespawnTimer_timeout():
 	$Shape.disabled = false
+	get_parent().get_node("Camera/DeathLabel").visible = false
+	canMove = true
 	visible = true
 	set_deferred("hasFocus", true)
 	vehicle = null
 	self.global_transform = get_parent().get_node("Respawn").global_transform
-
-
-func _on_FireRate_timeout():
-	canShoot = true

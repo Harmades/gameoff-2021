@@ -11,7 +11,7 @@ var state = State.Alive
 
 var currentDeathCounter = 0
 
-export var burningMaxCounter = 5
+export var burningMaxCounter = 3
 export var wheel_base = 6
 export var steering_angle = 8
 export var engine_power = 100
@@ -40,14 +40,20 @@ func _physics_process(delta):
 	calculate_steering(delta)
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
+	if hasFocus:
+		setZoom(velocity.length() / slip_speed)
 
+func setZoom(value):
+	var camera = get_node("/root/Node2D/Camera")
+	var zoom = 0.4 + 0.2 * pow(value, 2) 
+	camera.zoom = Vector2(zoom, zoom)
+		
 func apply_friction():
 	if velocity.length() < minSpeed:
 		velocity = Vector2.ZERO
 	var friction_force = velocity * friction
 	var drag_force = velocity * velocity.length() * drag
 	acceleration += drag_force + friction_force
-	
 	
 func get_input():
 	var turn = 0
@@ -124,6 +130,7 @@ func _on_DeathCounter_timeout():
 		if hasFocus:
 			exit()
 			player.die()
+			setZoom(0)
 		$DeathCounterLabel.visible = false
 		emit_signal("explode", self.global_position, $ExplodeArea.get_node("Shape").shape.radius)
 		queue_free()

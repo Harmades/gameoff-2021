@@ -28,8 +28,13 @@ func clearIndex(index):
 	alive = alive - 1
 	emit_signal("neos_changed", alive)
 	if alive == 0:
-		get_tree().change_scene("res://UIEnd.tscn")
+		get_parent().get_node("WinTimer").start()
+		get_parent().get_node("Camera/WinLabel").visible = true
 
 func _on_Player_dead():
 	for enemy in enemies:
 		enemy.reset()
+
+
+func _on_WinTimer_timeout():
+	get_tree().change_scene("res://UIEnd.tscn")

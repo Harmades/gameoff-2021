@@ -25,10 +25,9 @@ margin_bottom = 199.0
 custom_fonts/font = ExtResource( 1 )
 text = "Hello, Agent Smith 1.0.
 
-8 neo programs are corrupting the Matrix in an 
-attempt to destroy it.
+8 neo-programs are corrupting the Matrix in an attempt to destroy it.
 Eliminate all neos before they cause 
-300 bugs in the city.
+300 bugs in the city. They're all wearing red.
 
 Arrows: move
 Left Click: shoot
