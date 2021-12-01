@@ -1903,10 +1903,10 @@ region_enabled = true
 region_rect = Rect2( 0, 32, 80, 16 )
 
 [node name="MatrixHealthLabel" type="Label" parent="Camera/BluePill"]
-margin_left = -34.0989
-margin_top = -6.20329
-margin_right = -6.09891
-margin_bottom = 5.79671
+margin_left = -36.2011
+margin_top = -6.23832
+margin_right = -8.20114
+margin_bottom = 5.76168
 custom_fonts/font = ExtResource( 11 )
 text = "Bugs: "
 __meta__ = {
@@ -1914,10 +1914,10 @@ __meta__ = {
 }
 
 [node name="MatrixHealth" type="Label" parent="Camera/BluePill"]
-margin_left = -6.22455
-margin_top = -5.90762
-margin_right = 17.7754
-margin_bottom = 6.09238
+margin_left = -8.32678
+margin_top = -5.94265
+margin_right = 15.6732
+margin_bottom = 6.05735
 custom_fonts/font = ExtResource( 11 )
 text = "0"
 __meta__ = {
@@ -1925,10 +1925,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Camera/BluePill"]
-margin_left = 0.503113
-margin_top = -5.75433
-margin_right = 40.5031
-margin_bottom = 8.24567
+margin_left = 11.3997
+margin_top = -6.27989
+margin_right = 51.3997
+margin_bottom = 7.72011
 custom_fonts/font = ExtResource( 11 )
 text = "/ 300"
 __meta__ = {
@@ -1942,10 +1942,10 @@ region_enabled = true
 region_rect = Rect2( 80, 32, 80, 16 )
 
 [node name="NeosCount" type="Label" parent="Camera/RedPill"]
-margin_left = -0.413418
-margin_top = -5.9451
-margin_right = 5.58658
-margin_bottom = 6.0549
+margin_left = -4.12738
+margin_top = -6.01518
+margin_right = 1.87262
+margin_bottom = 5.98482
 custom_fonts/font = ExtResource( 11 )
 text = "0"
 __meta__ = {
@@ -1953,10 +1953,10 @@ __meta__ = {
 }
 
 [node name="NeosLabel" type="Label" parent="Camera/RedPill"]
-margin_left = -27.9152
-margin_top = -5.63049
-margin_right = -1.91516
-margin_bottom = 6.36951
+margin_left = -31.6291
+margin_top = -5.70056
+margin_right = -5.62912
+margin_bottom = 6.29944
 custom_fonts/font = ExtResource( 11 )
 text = "Neos:"
 __meta__ = {
@@ -1964,10 +1964,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Camera/RedPill"]
-margin_left = 6.76407
-margin_top = -5.96085
-margin_right = 46.7641
-margin_bottom = 8.03915
+margin_left = 3.05011
+margin_top = -6.03093
+margin_right = 43.0501
+margin_bottom = 7.96907
 custom_fonts/font = ExtResource( 11 )
 text = "/ 8"
 __meta__ = {
