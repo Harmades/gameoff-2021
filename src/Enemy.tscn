@@ -28,7 +28,7 @@ animations = [ {
 extents = Vector2( 5, 7 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 60, 60 )
+extents = Vector2( 75, 75 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -41,6 +41,7 @@ position = Vector2( 3, -1 )
 rotation = -1.5708
 frames = SubResource( 4 )
 animation = "run"
+frame = 3
 playing = true
 
 [node name="Shape" type="CollisionShape2D" parent="."]

@@ -1246,7 +1246,7 @@ _data = {
 
 [sub_resource type="Curve2D" id=30]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 492.552, 1039.62, 0, 0, 0, 0, 492.791, 947.369, 0, 0, 0, 0, 383.676, 943.344, 0, 0, 0, 0, 383.204, 1052.72, 0, 0, 0, 0, 274.392, 1063.32, 0, 0, 0, 0, 36.8194, 1062.72, 0, 0, 0, 0, 37.4133, 1244.47, 0, 0, 0, 0, 136.362, 1244.85, 0, 0, 0, 0, 136.6, 1329.99, 0, 0, 0, 0, 275.392, 1329.78, 0, 0, 0, 0, 272.35, 1232.42, 0, 0, 0, 0, 383.865, 1232.95, 0, 0, 0, 0, 383.494, 1060.72, 0, 0, 0, 0, 498.937, 1060.9, 0, 0, 0, 0, 499.069, 943.56, 0, 0, 0, 0, 717.466, 941.562, 0, 0, 0, 0, 947.912, 946.908, 0, 0, 0, 0, 943.754, 1066.88, 0, 0, 0, 0, 1066.7, 1066.88, 0, 0, 0, 0, 1055.64, 892.684, 0, 0, 0, 0, 924.128, 842.344, 0, 0, 0, 0, 746.05, 844.546, 0, 0, 0, 0, 747.781, 683.458, 0, 0, 0, 0, 710.812, 683.301, 0, 0, 0, 0, 711.527, 432.562, 0, 0, 0, 0, 926.53, 433.156, 0, 0, 0, 0, 924.451, 354.509, 0, 0, 0, 0, 711.823, 353.915, 0, 0, 0, 0, 373.919, 336.987, 0, 0, 0, 0, 388.267, 832.366, 0, 0, 0, 0, 387.467, 930.376, 0, 0, 0, 0, 487.494, 933.705, 0, 0, 0, 0, 492.552, 1039.62 )
+"points": PoolVector2Array( 0, 0, 0, 0, 492.552, 1039.62, 0, 0, 0, 0, 492.791, 947.369, 0, 0, 0, 0, 383.676, 943.344, 0, 0, 0, 0, 383.204, 1052.72, 0, 0, 0, 0, 274.392, 1063.32, 0, 0, 0, 0, 36.8194, 1062.72, 0, 0, 0, 0, 37.4133, 1244.47, 0, 0, 0, 0, 136.362, 1244.85, 0, 0, 0, 0, 136.6, 1329.99, 0, 0, 0, 0, 275.392, 1329.78, 0, 0, 0, 0, 272.35, 1232.42, 0, 0, 0, 0, 383.865, 1232.95, 0, 0, 0, 0, 383.494, 1060.72, 0, 0, 0, 0, 498.937, 1060.9, 0, 0, 0, 0, 499.069, 943.56, 0, 0, 0, 0, 717.466, 941.562, 0, 0, 0, 0, 956.473, 945.445, 0, 0, 0, 0, 955.492, 1066.25, 0, 0, 0, 0, 1063.69, 1065.97, 0, 0, 0, 0, 1055.64, 892.684, 0, 0, 0, 0, 924.128, 842.344, 0, 0, 0, 0, 746.05, 844.546, 0, 0, 0, 0, 747.781, 683.458, 0, 0, 0, 0, 710.812, 683.301, 0, 0, 0, 0, 711.527, 432.562, 0, 0, 0, 0, 926.53, 433.156, 0, 0, 0, 0, 924.451, 354.509, 0, 0, 0, 0, 711.823, 353.915, 0, 0, 0, 0, 373.919, 336.987, 0, 0, 0, 0, 388.267, 832.366, 0, 0, 0, 0, 387.467, 930.376, 0, 0, 0, 0, 487.494, 933.705, 0, 0, 0, 0, 492.552, 1039.62 )
 }
 
 [sub_resource type="Curve2D" id=31]
@@ -1438,11 +1438,11 @@ region = Rect2( 32, 192, 16, 16 )
 atlas = ExtResource( 1 )
 region = Rect2( 16, 192, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=71]
+[sub_resource type="AtlasTexture" id=70]
 atlas = ExtResource( 1 )
 region = Rect2( 80, 192, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=70]
+[sub_resource type="SpriteFrames" id=71]
 animations = [ {
 "frames": [ SubResource( 66 ) ],
 "loop": true,
@@ -1454,7 +1454,7 @@ animations = [ {
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 71 ) ],
+"frames": [ SubResource( 70 ) ],
 "loop": true,
 "name": "death",
 "speed": 5.0
@@ -1670,7 +1670,7 @@ position = Vector2( 12, 0 )
 [node name="Animation" type="AnimatedSprite" parent="Player"]
 position = Vector2( 3, -1 )
 rotation = -1.5708
-frames = SubResource( 70 )
+frames = SubResource( 71 )
 animation = "death"
 
 [node name="CameraRemoteTransform" type="RemoteTransform2D" parent="Player"]
@@ -1897,16 +1897,16 @@ zoom = Vector2( 0.4, 0.4 )
 script = ExtResource( 12 )
 
 [node name="BluePill" type="Sprite" parent="Camera"]
-position = Vector2( -159.123, -92.9925 )
+position = Vector2( -144, -92 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 32, 48, 16 )
+region_rect = Rect2( 0, 32, 80, 16 )
 
 [node name="MatrixHealthLabel" type="Label" parent="Camera/BluePill"]
-margin_left = -20.3154
-margin_top = -6.40171
-margin_right = 7.68457
-margin_bottom = 5.59829
+margin_left = -34.0989
+margin_top = -6.20329
+margin_right = -6.09891
+margin_bottom = 5.79671
 custom_fonts/font = ExtResource( 11 )
 text = "Bugs: "
 __meta__ = {
@@ -1914,27 +1914,38 @@ __meta__ = {
 }
 
 [node name="MatrixHealth" type="Label" parent="Camera/BluePill"]
-margin_left = 9.94005
-margin_top = -5.70919
-margin_right = 33.94
-margin_bottom = 6.29081
+margin_left = -6.22455
+margin_top = -5.90762
+margin_right = 17.7754
+margin_bottom = 6.09238
 custom_fonts/font = ExtResource( 11 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="Camera/BluePill"]
+margin_left = 0.503113
+margin_top = -5.75433
+margin_right = 40.5031
+margin_bottom = 8.24567
+custom_fonts/font = ExtResource( 11 )
+text = "/ 300"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RedPill" type="Sprite" parent="Camera"]
-position = Vector2( -159.31, -70.745 )
+position = Vector2( -144, -70 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 48, 32, 48, 16 )
+region_rect = Rect2( 80, 32, 80, 16 )
 
 [node name="NeosCount" type="Label" parent="Camera/RedPill"]
-margin_left = 9.62251
-margin_top = -6.13543
-margin_right = 15.6225
-margin_bottom = 5.86457
+margin_left = -0.413418
+margin_top = -5.9451
+margin_right = 5.58658
+margin_bottom = 6.0549
 custom_fonts/font = ExtResource( 11 )
 text = "0"
 __meta__ = {
@@ -1942,12 +1953,23 @@ __meta__ = {
 }
 
 [node name="NeosLabel" type="Label" parent="Camera/RedPill"]
-margin_left = -19.8635
-margin_top = -5.75467
-margin_right = 6.13651
-margin_bottom = 6.24533
+margin_left = -27.9152
+margin_top = -5.63049
+margin_right = -1.91516
+margin_bottom = 6.36951
 custom_fonts/font = ExtResource( 11 )
 text = "Neos:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Camera/RedPill"]
+margin_left = 6.76407
+margin_top = -5.96085
+margin_right = 46.7641
+margin_bottom = 8.03915
+custom_fonts/font = ExtResource( 11 )
+text = "/ 8"
 __meta__ = {
 "_edit_use_anchors_": false
 }
